@@ -23,7 +23,7 @@ const plus = (e) => {
   dispatch(addTodo(text))
 }
 
-const remove=(get)=>{
+const minus=(get)=>{
   dispatch(deleteTodo(get))
 }
 
@@ -31,10 +31,10 @@ const remove=(get)=>{
 const list = data.map((value,index) => {
   return(
     <div key={index}>
-    <h1><span>{value.id}{value.text}</span></h1>
+    <h1><span>{value.id}.{value.text}</span></h1>
     {/* <button onClick={()=>update()}>수정</button> */}
-    <button onClick={()=>remove(value.id)}>삭제</button>
-    <Link to ={`/Update`}>
+    <button onClick={()=>minus(value.id)}>삭제</button>
+    <Link to ={`/Update/${value.id}`}>
     <button>수정</button>
     </Link>
     </div>

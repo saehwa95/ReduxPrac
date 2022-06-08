@@ -40,7 +40,19 @@ const todos = (state = initialState, action) => {
     return{...state, todos : state.todos.filter((todo)=>{return todo.id !== action.payload}),
     };
 
-    case UPDATE_TODO : return {}
+      // arr [1,2,3]
+      // arr.filter ( (idx)=> {return true/false} )
+      // [1, 3]
+
+      // arr [1,2,3]
+      // arr.map ( (idx)=> {return idx * 2} )
+      // [2, 4, 6]
+
+    case UPDATE_TODO : return {...state, todos : state.todos.map((todo)=>{
+        if(todo.id == action.payload.todoId)
+          todo.text = action.payload.text;
+        return todo;
+      })}
 
     case GET_TODO: return{...state}
 
