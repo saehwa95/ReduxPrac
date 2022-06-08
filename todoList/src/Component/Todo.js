@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 import{addTodo, deleteTodo} from "../redux/reducer/reducer"
 
 const Todo = () => {
@@ -33,6 +34,9 @@ const list = data.map((value,index) => {
     <h1><span>{value.id}{value.text}</span></h1>
     {/* <button onClick={()=>update()}>수정</button> */}
     <button onClick={()=>remove(value.id)}>삭제</button>
+    <Link to ={`/Update`}>
+    <button>수정</button>
+    </Link>
     </div>
   )
 })

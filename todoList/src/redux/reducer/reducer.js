@@ -1,7 +1,9 @@
 //액션 타입
 const ADD_TODO = "ADD_TODO"
 const DELETE_TODO = "DELETE_TODO"
+const UPDATE_TODO = "UPDATE_TODO"
 const GET_TODO = "GET_TODO"
+
 
 //액션 크리에이터
 export const addTodo = (payload) => {
@@ -11,6 +13,11 @@ export const addTodo = (payload) => {
 export const deleteTodo = (payload) => {
   return {type : DELETE_TODO, payload}
 };
+
+
+export const updateTodo = (payload) => {
+  return {type : UPDATE_TODO, payload}
+}
 
 export const getTodo = (payload) => {
   return {type : GET_TODO, payload}
@@ -32,6 +39,8 @@ const todos = (state = initialState, action) => {
       // return() 아니고, {return 바로..~~ ?}
     return{...state, todos : state.todos.filter((todo)=>{return todo.id !== action.payload}),
     };
+
+    case UPDATE_TODO : return {}
 
     case GET_TODO: return{...state}
 
